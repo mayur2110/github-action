@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lab12
+spec:
+  selector:
+    matchLabels:
+      run: server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: server
+    spec:
+      containers:
+        - name: lab12
+          image: mayur2110/helloserver
+          ports:
+            - containerPort: 8000
+              protocol: TCP
